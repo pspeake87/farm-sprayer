@@ -16,19 +16,25 @@ import React, {
   TouchableOpacity
 } from 'react-native';
 
-const timer = require('react-native-timer');
+
 import MapView from 'react-native-maps';
-var { width, height } = Dimensions.get('window');
+var {height, width} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
 
 module.exports = class Main extends Component {
 
+
   constructor(props) {
     super(props);
+
+    watchID: (null: ?number),
+
     this.state = {
+      
       pathSprayed: [],
       region: {latitude: 32.47, longitude: -107.85, latitudeDelta: 0.001, longitudeDelta: 0.001 * ASPECT_RATIO},
-      annotations: []
+      annotations: [],
+      line: 0
     }
   }
 
@@ -36,29 +42,24 @@ module.exports = class Main extends Component {
     var self = this;
     StatusBar.setHidden(true);
 
-
   }
 
   componentWillUnmount() {
-    timer.clearInterval("foo");
+    navigator.geolocation.clearWatch(id);
   }
 
   startSpraying() {
-    timer.setInterval('foo', this.triggerPostion.bind(this), 1000);
-  }
-
-  stopSpraying() {
-    timer.clearInterval("foo");
-  }
-
-  triggerPostion() {
-    navigator.geolocation.getCurrentPosition((position) => {
+    this.watchID = navigator.geolocation.watchPosition((position) => {
       
         this.getCurrentPosition(position);
     },
       (error) => alert(error.message),
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     );
+  }
+
+  stopSpraying() {
+    navigator.geolocation.clearWatch(this.watchID);
   }
 
   getCurrentPosition(position) {
@@ -77,11 +78,21 @@ module.exports = class Main extends Component {
          this.setState({
            pathSprayed: bob,
            annotations: markers,
-           region: {latitude: position.coords.latitude, longitude: position.coords.longitude, latitudeDelta: 0.001, longitudeDelta:  0.001 * ASPECT_RATIO}
+           region: {latitude: position.coords.latitude, longitude: position.coords.longitude, latitudeDelta: 0.002, longitudeDelta:  0.002 * ASPECT_RATIO}
          });
   }
 
-
+  onRegionChangeComplete(region) {
+    var lat = region.latitude * (Math.PI / 180)
+    var d = region.longitudeDelta * 40075160 * Math.cos(lat) / 360
+    var perPixel = d / width;
+    var display = 5 / perPixel;
+    this.setState({
+      region: region,
+      line: display
+    });
+   
+  }
 
 
   render() {
@@ -91,18 +102,18 @@ module.exports = class Main extends Component {
         <View style={{flex: 1}}></View>
         <MapView style={{flex: 8}}
           showsUserLocation={true}
-          mapType={'satellite'}
-          region={this.state.region}>
+          region={this.state.region}
+          onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
           <MapView.Polyline
             coordinates={this.state.pathSprayed}
-            strokeColor="rgba(0,0,200,0.5)"
-            strokeWidth={4}
+            strokeColor="rgba(0,200,0,0.5)"
+            strokeWidth={this.state.line}
           />
         </MapView>
        <TouchableOpacity style={{flex: 2, backgroundColor: 'green', alignItems: 'center', justifyContent: 'center'}} onPress={this.startSpraying.bind(this)}>
         <Text style={{fontSize: 30, color: 'white'}}>Start</Text>
        </TouchableOpacity>
-       <TouchableOpacity style={{flex: 1, backgroundColor: 'grey', alignItems: 'center', justifyContent: 'center'}} onPress={this.stopSpraying}>
+       <TouchableOpacity style={{flex: 1, backgroundColor: 'grey', alignItems: 'center', justifyContent: 'center'}} onPress={this.stopSpraying.bind(this)}>
         <Text  style={{fontSize: 25, color: 'white'}}>Menu</Text>
        </TouchableOpacity>
 
