@@ -1,0 +1,17 @@
+{
+  "name": "farmSprayer",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "fbjs": "^0.6.1",
+    "immutable": "^3.7.4",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.8",
+    "react-native": "^0.24.1",
+    "react-native-maps": "^0.3.2",
+    "react-native-timer": "^1.0.3"
+  }
+}
