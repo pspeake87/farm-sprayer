@@ -1,38 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, {
-  StatusBar,
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View,
-  MapView,
-  TouchableOpacity
-} from 'react-native';
-
-const Main = require('./App/Views/Main.js')
-
-class farmSprayer extends Component {
-
-  componentDidMount() {
-    StatusBar.setHidden(true);
-  }
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import App from './App/App';
 
 
-  render() {
-    return (
+console.ignoredYellowBox = ['Warning: Failed propType: SceneView'];
+console.ignoredYellowBox = ['Warning: ReactNative.Children is deprecated. Use React.Children from the "react" package instead.'];
+console.ignoredYellowBox = ['ExceptionsManager.js:76 Warning: ReactNative.isValidElement is deprecated. Use React.isValidElement from the "react" package instead.'];
 
-      <View style={{flex: 1}}>
-        <Main/>
-      </View>
-    );
-  }
-}
-
-
-AppRegistry.registerComponent('farmSprayer', () => farmSprayer);
+AppRegistry.registerComponent('farmSprayer', () => App);
