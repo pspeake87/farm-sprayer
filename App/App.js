@@ -3,15 +3,18 @@ import React, {Component} from 'react';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {Provider, connect} from 'react-redux';
 import thunk from 'redux-thunk';
-import {Router, Switch, Scene} from 'react-native-router-flux';
+import {Router, Switch, Scene, Actions, DefaultRenderer} from 'react-native-router-flux';
 import createLogger from 'redux-logger';
-
+import Drawer from 'react-native-drawer';
+import SideMenu from './Views/SideMenu';
 import * as ActionCreators from './ActionCreators';
 import OAuth2 from 'react-native-oauth2';
 import persistentStorage from 'react-native-simple-store';
 import moment from 'moment';
 
 import MainView from './Views/MainView';
+import TabView from './Views/TabView';
+import AdvancedSetting from './Views/AdvancedSettingView';
 
 
 const RouterWithRedux = connect()(Router);
@@ -27,7 +30,7 @@ import reducers from './Reducers';
 // http://redux.js.org/docs/basics/Store.html
 const loggerMiddelware = createLogger();
 const store = createStore(reducers, applyMiddleware(thunk, loggerMiddelware));
-
+              
 class App extends Component {
 
   constructor(props) {
@@ -69,7 +72,8 @@ class App extends Component {
   }
 
   selectRouterTab(props) {
-      return "main"
+    
+      return "sidemenu"
  
   }
 
@@ -79,21 +83,19 @@ class App extends Component {
       
       <Provider store={store}>
         <RouterWithRedux>
-
          <Scene key="root"
                  component={ConnectedSwitch}
                  tabs={true}
-                 selector={this.selectRouterTab.bind(this)}
-          >
-            <Scene key="main">
-              <Scene key="splash" initial={true} component={MainView}/>
-            
-            </Scene>
-
+                 selector={this.selectRouterTab.bind(this)}>
            
-
+           <Scene key="sidemenu" direction="vertical" component={SideMenu}>
+              <Scene key="main" tabs={true}>
+                <Scene key="splash" initial={true} hideNavBar={true} component={MainView}/>
+                <Scene key="advanced" hideNavBar={true} component={AdvancedSetting}/>
+              </Scene> 
+           </Scene>  
+             
           </Scene>
-
         </RouterWithRedux>
       </Provider>
     )

@@ -1,0 +1,438 @@
+{
+	"liveValues": [
+		{
+			"range": {
+				"from": {
+					"line": 35,
+					"ch": 19
+				},
+				"to": {
+					"line": 35,
+					"ch": 26
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "Color",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 36,
+					"ch": 22
+				},
+				"to": {
+					"line": 36,
+					"ch": 24
+				}
+			},
+			"type": "number",
+			"name": "FontSize",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 37,
+					"ch": 24
+				},
+				"to": {
+					"line": 37,
+					"ch": 32
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontWeight",
+			"type": "string",
+			"name": "FontWeight",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 38,
+					"ch": 24
+				},
+				"to": {
+					"line": 38,
+					"ch": 40
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontFamily",
+			"type": "string",
+			"name": "FontFamily",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 46,
+					"ch": 20
+				},
+				"to": {
+					"line": 46,
+					"ch": 22
+				}
+			},
+			"type": "number",
+			"name": "Height",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 47,
+					"ch": 19
+				},
+				"to": {
+					"line": 47,
+					"ch": 22
+				}
+			},
+			"type": "number",
+			"name": "Width",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 50,
+					"ch": 25
+				},
+				"to": {
+					"line": 50,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "BorderColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 52,
+					"ch": 23
+				},
+				"to": {
+					"line": 52,
+					"ch": 34
+				}
+			},
+			"editWith": "inputField",
+			"type": "string",
+			"name": "Placeholder",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 53,
+					"ch": 32
+				},
+				"to": {
+					"line": 53,
+					"ch": 53
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "PlaceholderTextColor",
+			"group": "TEXT INPUT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 64,
+					"ch": 19
+				},
+				"to": {
+					"line": 64,
+					"ch": 26
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "Color",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 65,
+					"ch": 22
+				},
+				"to": {
+					"line": 65,
+					"ch": 24
+				}
+			},
+			"type": "number",
+			"name": "FontSize",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 66,
+					"ch": 24
+				},
+				"to": {
+					"line": 66,
+					"ch": 32
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontWeight",
+			"type": "string",
+			"name": "FontWeight",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 67,
+					"ch": 24
+				},
+				"to": {
+					"line": 67,
+					"ch": 40
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontFamily",
+			"type": "string",
+			"name": "FontFamily",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 80,
+					"ch": 21
+				},
+				"to": {
+					"line": 80,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "TintColor",
+			"group": "SWITCH"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 81,
+					"ch": 23
+				},
+				"to": {
+					"line": 81,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "OnTintColor",
+			"group": "SWITCH"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 89,
+					"ch": 19
+				},
+				"to": {
+					"line": 89,
+					"ch": 26
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "Color",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 90,
+					"ch": 22
+				},
+				"to": {
+					"line": 90,
+					"ch": 24
+				}
+			},
+			"type": "number",
+			"name": "FontSize",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 91,
+					"ch": 24
+				},
+				"to": {
+					"line": 91,
+					"ch": 32
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontWeight",
+			"type": "string",
+			"name": "FontWeight",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 92,
+					"ch": 24
+				},
+				"to": {
+					"line": 92,
+					"ch": 40
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontFamily",
+			"type": "string",
+			"name": "FontFamily",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 105,
+					"ch": 21
+				},
+				"to": {
+					"line": 105,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "TintColor",
+			"group": "SWITCH"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 106,
+					"ch": 23
+				},
+				"to": {
+					"line": 106,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "OnTintColor",
+			"group": "SWITCH"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 114,
+					"ch": 19
+				},
+				"to": {
+					"line": 114,
+					"ch": 26
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "Color",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 115,
+					"ch": 22
+				},
+				"to": {
+					"line": 115,
+					"ch": 24
+				}
+			},
+			"type": "number",
+			"name": "FontSize",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 116,
+					"ch": 24
+				},
+				"to": {
+					"line": 116,
+					"ch": 32
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontWeight",
+			"type": "string",
+			"name": "FontWeight",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 117,
+					"ch": 24
+				},
+				"to": {
+					"line": 117,
+					"ch": 40
+				}
+			},
+			"editWith": "dropdown",
+			"dropdownOptions": "FontFamily",
+			"type": "string",
+			"name": "FontFamily",
+			"group": "TEXT"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 130,
+					"ch": 21
+				},
+				"to": {
+					"line": 130,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "TintColor",
+			"group": "SWITCH"
+		},
+		{
+			"range": {
+				"from": {
+					"line": 131,
+					"ch": 23
+				},
+				"to": {
+					"line": 131,
+					"ch": 42
+				}
+			},
+			"editWith": "colorPicker",
+			"type": "string",
+			"name": "OnTintColor",
+			"group": "SWITCH"
+		}
+	]
+}

@@ -60,7 +60,7 @@ class MainView extends Component {
   }
 
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(id);
+   
   }
   
 
@@ -146,7 +146,7 @@ class MainView extends Component {
           />
         </MapView>
        {this.startStopBtn()}
-       <TouchableOpacity style={{flex: 1, backgroundColor: 'grey', alignItems: 'center', justifyContent: 'center'}}>
+       <TouchableOpacity style={{flex: 1, backgroundColor: 'grey', alignItems: 'center', justifyContent: 'center'}} onPress={()=>Actions.refresh({key:"sidemenu", open: true})}>
         <Text  style={{fontSize: 25, color: 'white'}}>Menu</Text>
        </TouchableOpacity>
 
