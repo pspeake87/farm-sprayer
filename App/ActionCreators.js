@@ -80,8 +80,20 @@ function _fetchTemplate(actionType, apiEndpoint, params:Object = null, requestMe
   }
 }
 
-export function updatingPathLine(region) {
-  return {type: ActionTypes.PATH_LINE_UPDATING, state: region};
+export function updatingBoomWidth(width) {
+  return {type: ActionTypes.BOOM_WIDTH_UPDATING, state: width};
+}
+
+export function updatingTerrain(value) {
+  return {type: ActionTypes.TERRAIN_UPDATING, state: value};
+}
+
+export function resettingField() {
+  return {type: ActionTypes.FIELD_RESETTING};
+}
+
+export function updatingDaylightMode(value) {
+  return {type: ActionTypes.DAYLIGHT_MODE_UPDATING, state: value};
 }
 
 export function accessTokenFetching() {

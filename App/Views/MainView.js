@@ -6,11 +6,12 @@ import {
   View,
   Image,
   StatusBar,
+  MapView,
   TouchableOpacity} from 'react-native'
 import FluxRouter from 'react-native-router-flux';
 
 import { connect } from 'react-redux'
-import MapView from 'react-native-maps';
+
 import * as ActionCreators from '../ActionCreators';
 import {Actions, Scene, Router} from 'react-native-router-flux';
 var {height, width} = Dimensions.get('window');
@@ -45,7 +46,7 @@ class MainView extends Component {
     watchID: (null: ?number),
 
     this.state = {
-      
+      lineWidth: 10,
       pathSprayed: [],
       region: {latitude: 32.47, longitude: -107.85, latitudeDelta: 0.002, longitudeDelta: 0.002 * ASPECT_RATIO},
       annotations: [],
@@ -106,8 +107,15 @@ class MainView extends Component {
   }
 
   onRegionChangeComplete(region) { 
-    this.props.dispatch(ActionCreators.updatingPathLine(region));
+
+
+    var lat = region.latitude * (Math.PI / 180)
+    var d = region.longitudeDelta * 40075160 * Math.cos(lat) / 360
+    var perPixel = d / width;
+    var display = this.props.map.boom_width / perPixel;
+
     this.setState({
+      lineWidth: display,
       region: region,
     });
   }
@@ -137,26 +145,24 @@ class MainView extends Component {
         <MapView style={{flex: 8}}
           showsUserLocation={true}
           region={this.state.region}
-          mapType={'satellite'}
+          mapType={this.props.map.terrain}
           onRegionChangeComplete={this.onRegionChangeComplete.bind(this)}>
-          <MapView.Polyline
-            coordinates={this.state.pathSprayed}
-            strokeColor="rgba(0,200,0,0.5)"
-            strokeWidth={this.props.map.path_line}
-          />
+          overlays={[{
+          coordinates: this.state.pathSprayed,
+          strokeColor: '#f007',
+          lineWidth: this.state.lineWidth,
+          }]}
         </MapView>
        {this.startStopBtn()}
-       <TouchableOpacity style={{flex: 1, backgroundColor: 'grey', alignItems: 'center', justifyContent: 'center'}} onPress={()=>Actions.refresh({key:"sidemenu", open: true})}>
-        <Text  style={{fontSize: 25, color: 'white'}}>Menu</Text>
-       </TouchableOpacity>
-
       </View>
     );
   }
 }
 
 MainView.propTypes = {
-  path_line: PropTypes.number,
+  boom_width: PropTypes.number,
+  terrain: PropTypes.string,
+  daylight_mode: PropTypes.boolean
 }
 
 function mapStateToProps(state) {

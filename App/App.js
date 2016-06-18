@@ -69,11 +69,18 @@ class App extends Component {
 //       }
 //     });
 
+    //check to see if we have settings already stored on the device
+    persistentStorage.get('map_settings').then(value => {
+      store.dispatch(ActionCreators.updatingTerrain(value.terrain)); 
+      store.dispatch(ActionCreators.updatingBoomWidth(value.boom_width)); 
+      store.dispatch(ActionCreators.updatingDaylightMode(value.daylight_mode)); 
+    });
+
   }
 
   selectRouterTab(props) {
     
-      return "sidemenu"
+      return "main"
  
   }
 
@@ -88,12 +95,17 @@ class App extends Component {
                  tabs={true}
                  selector={this.selectRouterTab.bind(this)}>
            
-           <Scene key="sidemenu" direction="vertical" component={SideMenu}>
-              <Scene key="main" tabs={true}>
-                <Scene key="splash" initial={true} hideNavBar={true} component={MainView}/>
-                <Scene key="advanced" hideNavBar={true} component={AdvancedSetting}/>
+           
+              <Scene key="main">
+                <Scene key="sidemenu" component={SideMenu} tabs={true}>
+                  <Scene key="splash" initial={true} component={MainView} navigationBarStyle={{backgroundColor:'rgba(0,212,0,0.8)', borderBottomWidth: 0}} 
+                title="Map" titleStyle={{color:'black'}}
+                drawerImage={require('./Assets/Images/icon-menu.png')}
+                leftButtonIconStyle={{tintColor: 'black'}}/>
+                  <Scene key="advanced" hideNavBar={true} component={AdvancedSetting}/>
+                </Scene> 
               </Scene> 
-           </Scene>  
+            
              
           </Scene>
         </RouterWithRedux>

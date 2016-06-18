@@ -51,7 +51,10 @@ import _ from 'underscore';
 
 
 export default keyMirror({
-  PATH_LINE_UPDATING: null,
+  BOOM_WIDTH_UPDATING: null,
+  TERRAIN_UPDATING: null,
+  FIELD_RESETTING: null,
+  DAYLIGHT_MODE_UPDATING: null,
   
   // -----------
   ACCESS_TOKEN: null,
